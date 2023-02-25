@@ -1,0 +1,17 @@
+{
+  "name": "goals-bot",
+  "version": "1.0.0",
+  "description": "Discord bot to grab vids from twtr and upload to insta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bedro",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "discord.js": "^14.7.1",
+    "instagram-private-api": "^1.45.3",
+    "node-fetch": "^2.6.9"
+  }
+}
