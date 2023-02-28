@@ -9,6 +9,7 @@
   "author": "bedro",
   "license": "MIT",
   "dependencies": {
+    "bing-chat": "^0.2.1",
     "cheerio": "^1.0.0-rc.12",
     "discord.js": "^14.7.1",
     "instagram-private-api": "^1.45.3",
