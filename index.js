@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const { IgApiClient } = require("instagram-private-api");
+const { BingChat } = require("./bingAPI.js");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
@@ -11,6 +12,10 @@ const client = new Discord.Client({
 client.commands = new Discord.Collection();
 client.caption = "";
 client.cover = "";
+client.bing = new BingChat({
+  cookie:
+    "1ANFCCTwbocfrRZSZ3ZnT0VawM9wsnviIDzhLhXLi7UtT4zWskUTkGGrdLbg3JHiWgv1m8tgn-x7faRONzZZdspsGZbUXsua5Hm82pOd1zGkVA5esWUM9l_2JT1l_qHaXODHMax3bSAc39vG2d76cnXaqEPpVznIreLd0kOu5N1rHia6KAK7hMRKXFeuoh3JPvhBnuJNv-oPXig3dlHhW7g",
+});
 
 const ig = new IgApiClient();
 
@@ -75,12 +80,6 @@ client.once(Discord.Events.ClientReady, async () => {
 
   await login();
   console.log("Successfully logged in to Instagram!");
-
-  const { BingChat } = await import("bing-chat");
-  client.bing = new BingChat({
-    cookie:
-      "1ANFCCTwbocfrRZSZ3ZnT0VawM9wsnviIDzhLhXLi7UtT4zWskUTkGGrdLbg3JHiWgv1m8tgn-x7faRONzZZdspsGZbUXsua5Hm82pOd1zGkVA5esWUM9l_2JT1l_qHaXODHMax3bSAc39vG2d76cnXaqEPpVznIreLd0kOu5N1rHia6KAK7hMRKXFeuoh3JPvhBnuJNv-oPXig3dlHhW7g",
-  });
 });
 
 client.on(Discord.Events.InteractionCreate, async (interaction) => {
